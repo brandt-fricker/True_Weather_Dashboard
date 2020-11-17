@@ -1,10 +1,11 @@
 var apikey = "2d3fc2e3e0711ca594c4d9d5c7d37e7f"
-let citySearch = document.querySelector("#city").value;
+// var citynameTest = "Atlanta"
+var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + citynameTest + "&units=imperial&appid=2d3fc2e3e0711ca594c4d9d5c7d37e7f";
+
+
 function userCity() {
-    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + citySearch+ "&units=imperial&appid=2d3fc2e3e0711ca594c4d9d5c7d37e7f";
-fetch('https://api.openweathermap.org/data/2.5/weather?q=' + citySearch+ '&units=imperial&appid=2d3fc2e3e0711ca594c4d9d5c7d37e7f')
-.then(response => response.json())
-.then(data => console.log(data));
+    let citySearch = document.querySelector("#city").value;
+    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + citySearch + "&units=imperial&appid=2d3fc2e3e0711ca594c4d9d5c7d37e7f";
     // Get the entry from the input field.
     // let citySearch = document.querySelector("#city").value;
 
@@ -21,6 +22,16 @@ fetch('https://api.openweathermap.org/data/2.5/weather?q=' + citySearch+ '&units
         var li = document.createElement("li");
         li.appendChild(document.createTextNode(citySearch));
         ul.appendChild(li);
+        $.ajax({
+            method: "GET",
+            url: queryURL,
+
+
+        }).then(function (burrito) {
+            console.log(burrito)
+            var cityTheUserSelected = burrito.name;
+            console.log(cityTheUserSelected)
+        });
 
     } else {
         alert("Please enter a valid city")
@@ -46,4 +57,3 @@ fetch('https://api.openweathermap.org/data/2.5/weather?q=' + citySearch+ '&units
 
 
 
-    
