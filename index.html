@@ -18,7 +18,7 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-lg-4">
+      <div class="col-lg-3">
         <p>Search for a City:</p>
         <input type="text" name="city" id="city">
         <button type="button" class="btn btn-primary" onclick="userCity()">Search</button>
@@ -29,12 +29,63 @@
 </ul>
 
       </div>
-      <div class="col-lg-8">
+      <div class="col-lg-9">
+        <div id="weatherContainer" class="weatherCard" style="width:100%"></div>
+        <div id="currentWeather" class="cardBody">
+          <h3 class="cardBody">temp</h3>
+          <p class="cardBody">humidity</p>
+          <p class="cardBody">ws</p>
+          <p class="cardBody"></p>
+          <p class="cardBody">"UV Index: "</p>
+        </div>
         <p>Output placeholder</p>
 
       </div>
     </div>
   </div> <!-- closes main container -->
+  <div id="5dayContainer">
+    <div id="forecasts">
+      <h4 class="card-header">5 Day Forecasts</h4>
+      <div class="5days">
+        <div class="card mb-3 mt-3"></div>
+      <div class="cardBod">
+        <h6 class="title"></h6>
+        <img src="#" >cd
+        <p class="cardText">temp</p>
+        <p class="cartText">humidity</p>
+      </div>
+        <div class="card mb-3 mt-3"></div>
+        <div class="cardBod">
+          <h6 class="title"></h6>
+          <img src="#" >
+          <p class="cardText">temp</p>
+          <p class="cartText">humidity</p>
+        </div>
+        <div class="card mb-3 mt-3"></div>
+        <div class="cardBod">
+          <h6 class="title"></h6>
+          <img src="#" >
+          <p class="cardText">temp</p>
+          <p class="cartText">humidity</p>
+        </div>
+        <div class="card mb-3 mt-3"></div>
+        <div class="cardBod">
+          <h6 class="title"></h6>
+          <img src="#" >
+          <p class="cardText">temp</p>
+          <p class="cartText">humidity</p>
+        </div>
+        <div class="card mb-3 mt-3"></div>
+        <div class="cardBod">
+          <h6 class="title"></h6>
+          <img src="#" >
+          <p class="cardText">temp</p>
+          <p class="cartText">humidity</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
     crossorigin="anonymous"></script>

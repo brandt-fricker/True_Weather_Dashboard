@@ -1,15 +1,16 @@
 var apikey = "2d3fc2e3e0711ca594c4d9d5c7d37e7f"
-
+let citySearch = document.querySelector("#city").value;
 function userCity() {
 
     // Get the entry from the input field.
-    let citySearch = document.querySelector("#city").value;
+    // let citySearch = document.querySelector("#city").value;
 
     // Make sure the entry is "valid"
     // Trim off white-space
     // Check length
     // If too short, warn user and return
     // Store to localstorage
+    // Update the recent searches area
     if (citySearch !== "" || citySearch !== undefined) {
         citySearch.trim();
         localStorage.setItem("UserCitySelection", JSON.stringify(citySearch));
@@ -27,7 +28,6 @@ function userCity() {
 
 
 
-    // Update the recent searches area
 
 
     // Use the entry to call the openweather API
@@ -40,3 +40,7 @@ function userCity() {
 
 
 }
+
+
+
+    
