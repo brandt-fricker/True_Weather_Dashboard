@@ -1,7 +1,10 @@
 var apikey = "2d3fc2e3e0711ca594c4d9d5c7d37e7f"
 let citySearch = document.querySelector("#city").value;
 function userCity() {
-
+    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + citySearch+ "&units=imperial&appid=2d3fc2e3e0711ca594c4d9d5c7d37e7f";
+fetch('https://api.openweathermap.org/data/2.5/weather?q=' + citySearch+ '&units=imperial&appid=2d3fc2e3e0711ca594c4d9d5c7d37e7f')
+.then(response => response.json())
+.then(data => console.log(data));
     // Get the entry from the input field.
     // let citySearch = document.querySelector("#city").value;
 
