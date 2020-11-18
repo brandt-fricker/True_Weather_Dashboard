@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
     integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
   <link rel="stylesheet" href="style.css">
+  
 </head>
 
 <body>
@@ -21,7 +22,7 @@
       <div class="col-lg-3">
         <p>Search for a City:</p>
         <input type="text" name="city" id="city">
-        <button type="button" class="btn btn-primary" onclick="userCity()">Search</button>
+        <button type="button" id="searchBtn" class="btn btn-primary" >Search</button>
         
 
 <ul id="myUL">
@@ -32,29 +33,23 @@
       <div class="col-lg-9">
         <div id="weatherContainer" class="weatherCard" style="width:100%"></div>
         <div id="currentWeather" class="cardBody">
-          <h3 class="cardBody">temp</h3>
+          <h3 class="cardBody" id="temp">temp</h3>
           <p class="cardBody">humidity</p>
           <p class="cardBody">ws</p>
           <p class="cardBody"></p>
           <p class="cardBody">"UV Index: "</p>
         </div>
-        <p>Output placeholder</p>
+        
 
       </div>
     </div>
   </div> <!-- closes main container -->
+  
   <div id="5dayContainer">
     <div id="forecasts">
       <h4 class="card-header">5 Day Forecasts</h4>
-      <div class="5days">
-        <div class="card mb-3 mt-3"></div>
-      <div class="cardBod">
-        <h6 class="title"></h6>
-        <img src="#" >cd
-        <p class="cardText">temp</p>
-        <p class="cartText">humidity</p>
-      </div>
-        <div class="card mb-3 mt-3"></div>
+      <div class="5days-container">
+        <!-- <div class="card mb-3 mt-3"></div>
         <div class="cardBod">
           <h6 class="title"></h6>
           <img src="#" >
@@ -82,6 +77,13 @@
           <p class="cardText">temp</p>
           <p class="cartText">humidity</p>
         </div>
+        <div class="card mb-3 mt-3"></div>
+        <div class="cardBod">
+          <h6 class="title"></h6>
+          <img src="#" >
+          <p class="cardText">temp</p>
+          <p class="cartText">humidity</p>
+        </div> -->
       </div>
     </div>
   </div>
