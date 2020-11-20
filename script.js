@@ -39,28 +39,32 @@ function userCity(citySearch) {
                 var mm = d.getMonth() + 1;
                 var yyyy = d.getFullYear(); 
                 var newHtml = `
-                    <h3 class="cardBody" id="cityName">${cityTheUserSelected} (${mm}/${dd}/${yyyy})</h3>
-                    <img src=" http://openweathermap.org/img/wn/${weatherIcon}@2x.png">
-                    <p class="cardBody">Temperature: ${theTemp}</p>
-                    <p class="cardBody">Humidity: ${theHumidity}</p>
-                    <p class="cardBody">Wind Speed: ${theWindSpeed} MPH</p>
-                    <p class="cardBody">UV Index: ${cityUv}</p>
-                    `;
-                    
+                <h3 class="cardBody" id="cityName">${cityTheUserSelected} (${mm}/${dd}/${yyyy})</h3>
+                <img src=" http://openweathermap.org/img/wn/${weatherIcon}@2x.png">
+                <p class="cardBody">Temperature: ${theTemp.toFixed(1)} \u00B0 F</p>
+                <p class="cardBody">Humidity: ${theHumidity}%</p>
+                <p class="cardBody">Wind Speed: ${theWindSpeed} MPH</p>
+                <p class="cardBody">UV Index: ${cityUv}</p>
+                `;
+                
                 // Insert HTML into div
                 $("#currentWeather").html(newHtml);
-
-                var queryURLForecast = "https://api.openweathermap.org/data/2.5/forecast?q=" + citySearch + "&units=imperial&appid="+apikey;
-    
-                $.ajax({
-                    method:"GET",
-                    url: queryURLForecast,
-                }).then(function(forecast){
-                    var listOfDays = forecast.list
-                     console.log(listOfDays[3])
-                    
-                     for (let i = 3; i < listOfDays.length; i+=8) {
-                        var dayAtNoon =  listOfDays[i].dt_txt
+            });
+            
+            var queryURLForecast = "https://api.openweathermap.org/data/2.5/forecast?q=" + citySearch + "&units=imperial&appid="+apikey;
+            
+            $.ajax({
+                method:"GET",
+                url: queryURLForecast,
+            }).then(function(forecast){
+                var listOfDays = forecast.list
+                console.log(listOfDays[3])
+                
+                     for (let i = 5; i < listOfDays.length; i+=8) {
+                        var dayAtNoon =  listOfDays[i].dt_txt.split(' ')
+                        dayAtNoon=dayAtNoon[0].split("-");
+                        dayAtNoon="("+dayAtNoon[1]+"/"+dayAtNoon[2]+"/"+dayAtNoon[0]+")";
+                        
                        var newTheTemp = listOfDays[i].main.temp;
                        var newTheHumidity = listOfDays[i].main.humidity;
                       var newWeatherIcon =listOfDays[i].weather[0].icon
@@ -72,20 +76,19 @@ function userCity(citySearch) {
 
                     new5day = `<h3 class="cardBody" id="cityName">${dayAtNoon}</h3>
                     <img src=" http://openweathermap.org/img/wn/${newWeatherIcon}@2x.png">
-                    <p class="cardBody">Temp: ${newTheTemp}</p>
-                    <p class="cardBody">Humidity: ${newTheHumidity}</p>`
+                    <p class="cardBody">Temp: ${newTheTemp.toFixed(1)} \u00B0F</p>
+                    <p class="cardBody">Humidity: ${newTheHumidity}%</p>`
                     $("#5days").html(new5day)
     
     
-            });
+                });
             })
+            
+        }} 
         
+            
         
-        
-    })} else {
-        alert("Please enter a valid city")
-    }
-}
+
 
 
 $('#searchBtn').on('click', function(){
