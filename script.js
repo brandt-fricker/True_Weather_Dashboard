@@ -4,19 +4,8 @@
 
 function userCity(citySearch) {
     $(".5days-container").empty()
-    // let citySearch = document.querySelector("#city").value;
     var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + citySearch + "&units=imperial&appid="+apikey;
 
-    
-    // Get the entry from the input field.
-    // let citySearch = document.querySelector("#city").value;
-    
-    // Make sure the entry is "valid"
-    // Trim off white-space
-    // Check length
-    // If too short, warn user and return
-    // Store to localstorage
-    // Update the recent searches area
     if (citySearch !== "" || citySearch !== undefined) {
         citySearch.trim();
         localStorage.setItem("UserCitySelection", JSON.stringify(citySearch));
@@ -46,7 +35,6 @@ function userCity(citySearch) {
                 console.log(uv);
                 var cityUv = uv.value;
                 var d  = new Date();
-                //var d = $.format.date(new Date(), 'dd/MM/yyyy');
                 var dd = d.getDate(); 
                 var mm = d.getMonth() + 1;
                 var yyyy = d.getFullYear(); 
@@ -70,22 +58,19 @@ function userCity(citySearch) {
                 }).then(function(forecast){
                     var listOfDays = forecast.list
                      console.log(listOfDays[3])
-                     var dayAtNoon=""
-                     var newTheTemp=""
-                     var newTheHumidity=""
-                     var newWeatherIcon=""
+                    
                      for (let i = 3; i < listOfDays.length; i+=8) {
-                        var dayAtNoon = dayAtNoon+ listOfDays[i].dt_txt;
-                       var newTheTemp = newTheTemp+ listOfDays[i].main.temp;
-                       var newTheHumidity =newTheHumidity+ listOfDays[i].main.humidity;
-                      var newWeatherIcon =newWeatherIcon+listOfDays[i].weather[0].icon
-                        
+                        var dayAtNoon =  listOfDays[i].dt_txt
+                       var newTheTemp = listOfDays[i].main.temp;
+                       var newTheHumidity = listOfDays[i].main.humidity;
+                      var newWeatherIcon =listOfDays[i].weather[0].icon
+                        console.log(dayAtNoon)
                  }
                          
                         
                         
 
-                    new5day = `<h3 class="cardBody" id="cityName">${cityTheUserSelected}</h3>
+                    new5day = `<h3 class="cardBody" id="cityName">${dayAtNoon}</h3>
                     <img src=" http://openweathermap.org/img/wn/${newWeatherIcon}@2x.png">
                     <p class="cardBody">Temp: ${newTheTemp}</p>
                     <p class="cardBody">Humidity: ${newTheHumidity}</p>`
