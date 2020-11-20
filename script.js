@@ -1,11 +1,13 @@
-// var apikey = "2d3fc2e3e0711ca594c4d9d5c7d37e7f"
+ var apikey = "2d3fc2e3e0711ca594c4d9d5c7d37e7f"
 
 
 
 function userCity(citySearch) {
     $(".5days-container").empty()
     // let citySearch = document.querySelector("#city").value;
-    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + citySearch + "&units=imperial&appid=2d3fc2e3e0711ca594c4d9d5c7d37e7f";
+    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + citySearch + "&units=imperial&appid="+apikey;
+
+    
     // Get the entry from the input field.
     // let citySearch = document.querySelector("#city").value;
     
@@ -36,7 +38,7 @@ function userCity(citySearch) {
             var long=burrito.coord.lon 
             var weatherIcon = burrito.weather[0].icon
             console.log(cityTheUserSelected)
-            var uvIndex = "http://api.openweathermap.org/data/2.5/uvi?lat="+latt+"&lon="+long+"&appid=2d3fc2e3e0711ca594c4d9d5c7d37e7f"
+            var uvIndex = "http://api.openweathermap.org/data/2.5/uvi?lat="+latt+"&lon="+long+"&appid="+apikey;
             $.ajax({
                 method:"GET",
                 url: uvIndex,
@@ -60,34 +62,47 @@ function userCity(citySearch) {
                 // Insert HTML into div
                 $("#currentWeather").html(newHtml);
 
+                var queryURLForecast = "https://api.openweathermap.org/data/2.5/forecast?q=" + citySearch + "&units=imperial&appid="+apikey;
+    
+                $.ajax({
+                    method:"GET",
+                    url: queryURLForecast,
+                }).then(function(forecast){
+                    var listOfDays = forecast.list
+                     console.log(listOfDays[3])
+                     var dayAtNoon=""
+                     var newTheTemp=""
+                     var newTheHumidity=""
+                     var newWeatherIcon=""
+                     for (let i = 3; i < listOfDays.length; i+=8) {
+                        var dayAtNoon = dayAtNoon+ listOfDays[i].dt_txt;
+                       var newTheTemp = newTheTemp+ listOfDays[i].main.temp;
+                       var newTheHumidity =newTheHumidity+ listOfDays[i].main.humidity;
+                      var newWeatherIcon =newWeatherIcon+listOfDays[i].weather[0].icon
+                        
+                 }
+                         
+                        
+                        
+
+                    new5day = `<h3 class="cardBody" id="cityName">${cityTheUserSelected}</h3>
+                    <img src=" http://openweathermap.org/img/wn/${newWeatherIcon}@2x.png">
+                    <p class="cardBody">Temp: ${newTheTemp}</p>
+                    <p class="cardBody">Humidity: ${newTheHumidity}</p>`
+                    $("#5days").html(new5day)
+    
+    
+            });
             })
-          
-
-
-        });
         
         
-    } else {
+        
+    })} else {
         alert("Please enter a valid city")
     }
-
-
-
-
-
-
-
-
-    // Use the entry to call the openweather API
-
-
-    // Process the results from the API
-
-
-    // Display the (format) results in the output div
-
-
 }
+
+
 $('#searchBtn').on('click', function(){
     var city = $('#city').val();
     userCity(city);
