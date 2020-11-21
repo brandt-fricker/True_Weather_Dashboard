@@ -68,9 +68,7 @@ function userCity(citySearch) {
                     <p class="cardBody">Temp: ${newTheTemp} \u00B0F</p>
                     <p class="cardBody">Humidity: ${newTheHumidity}</p>`)
 
-                    $("#5days").append(new5day)
-
-
+                    $("#5days").append(new5day.style.display.inline - block)
                 }
             });
         })
@@ -92,7 +90,7 @@ $('#searchBtn').on('click', function () {
     }
 });
 $(document).on("click", ".searchTerm", function (event) {
-var city = event.target.textContent;
+    var city = event.target.textContent;
     userCity(city);
 })
 
@@ -101,9 +99,7 @@ function pastSearchList() {
         const city = searchList[i];
         var ul = $("#myUL");
         var li = $(`<li class="searchTerm"> ${city} </li>`);
-
         ul.append(li);
-
     }
 }
 pastSearchList();
