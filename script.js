@@ -80,8 +80,7 @@ function userCity(citySearch) {
                 
                 
                 
-                
-                
+               
             });
         })
         
@@ -93,15 +92,23 @@ function userCity(citySearch) {
     
     
     $('#searchBtn').on('click', function(){
-        var city = $('#city').val();
-        userCity(city);
-        searchList.push(city);
-        localStorage.setItem("userCitiesSearched", JSON.stringify(searchList));
-        var ul = $("#myUL");
-        var li = $(`<li class="searchTerm"> ${city} </li>`);
-    
-        ul.append(li);
-    });
+        
+           if($("#city").val()=== ""){
+               alert("Please enter a valid city to search")
+           }else{
+               
+               
+               var city = $('#city').val();
+               userCity(city);
+               searchList.push(city);
+               localStorage.setItem("userCitiesSearched", JSON.stringify(searchList));
+               var ul = $("#myUL");
+               var li = $(`<li class="searchTerm"> ${city} </li>`);
+               
+               ul.append(li);
+               
+            }
+            });
     $(document).on("click", ".searchTerm", function(event){
         
         var city = event.target.textContent;
