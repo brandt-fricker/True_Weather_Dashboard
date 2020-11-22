@@ -1,4 +1,28 @@
+body {
+    background: url("https://images.pexels.com/photos/365268/pexels-photo-365268.jpeg?cs=srgb&dl=pexels-adrianna-calvo-365268.jpg&fm=jpg");
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+
 .btn {
     margin-top: 8px;
+    display: inline-block
+}
+.center{
+    background-color:lightblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.help{
+    display: inline-block;
+    margin-left: 20px;
+    border: lightslategrey solid;
 }
 
+.card-header{
+    background-color: lightgray;
+    
+}

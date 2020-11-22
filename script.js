@@ -5,6 +5,7 @@ var searchList = JSON.parse(localStorage.getItem("userCitiesSearched")) || [];
 // to get information for the current weather, uv index, and the forecast.
 function userCity(citySearch) {
     $(".5days-container").empty()
+    
     var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + citySearch + "&units=imperial&appid=" + apikey;
 
     if (citySearch !== "" || citySearch !== undefined) {
@@ -63,12 +64,13 @@ function userCity(citySearch) {
                     var newTheHumidity = listOfDays[i].main.humidity;
                     var newWeatherIcon = listOfDays[i].weather[0].icon
 
-                    var new5day = $(`<h3 class="cardBody" id="cityName">${dayAtNoon}</h3>
+                    var new5day = $(`<div class="help"> 
+                    <h3 class="cardBody" id="cityName">${dayAtNoon}</h3>
                     <img src=" http://openweathermap.org/img/wn/${newWeatherIcon}@2x.png">
                     <p class="cardBody">Temp: ${newTheTemp} \u00B0F</p>
-                    <p class="cardBody">Humidity: ${newTheHumidity}</p>`)
+                    <p class="cardBody">Humidity: ${newTheHumidity}</p> </div>`)
 
-                    $("#5days").append(new5day.style.display.inline - block)
+                    $("#5days").append(new5day)
                 }
             });
         })
@@ -92,7 +94,9 @@ $('#searchBtn').on('click', function () {
 $(document).on("click", ".searchTerm", function (event) {
     var city = event.target.textContent;
     userCity(city);
+ 
 })
+
 
 function pastSearchList() {
     for (let i = 0; i < searchList.length; i++) {
@@ -100,8 +104,11 @@ function pastSearchList() {
         var ul = $("#myUL");
         var li = $(`<li class="searchTerm"> ${city} </li>`);
         ul.append(li);
+       
     }
+          
 }
+
 pastSearchList();
 
 
