@@ -97,14 +97,12 @@ $('#searchBtn').on('click', function () {
        
     }
 });
+
 $(document).on("click", ".searchTerm", function (event) {
     var city = event.target.textContent;
     userCity(city);
     
-
- 
 })
-
 
 function pastSearchList() {
     for (let i = 0; i < searchList.length; i++) {
