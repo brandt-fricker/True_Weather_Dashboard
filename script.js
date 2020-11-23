@@ -64,11 +64,11 @@ function userCity(citySearch) {
                     var newTheHumidity = listOfDays[i].main.humidity;
                     var newWeatherIcon = listOfDays[i].weather[0].icon
 
-                    var new5day = $(`<div class="help"> 
+                    var new5day = $(`<div class="dayBlock"> 
                     <h3 class="cardBody" id="cityName">${dayAtNoon}</h3>
                     <img src=" http://openweathermap.org/img/wn/${newWeatherIcon}@2x.png">
                     <p class="cardBody">Temp: ${newTheTemp} \u00B0F</p>
-                    <p class="cardBody">Humidity: ${newTheHumidity}</p> </div>`)
+                    <p class="cardBody">Humidity: ${newTheHumidity} %</p> </div>`)
 
                     $("#5days").append(new5day)
                 }
@@ -89,11 +89,18 @@ $('#searchBtn').on('click', function () {
         var ul = $("#myUL");
         var li = $(`<li class="searchTerm"> ${city} </li>`);
         ul.append(li);
+        
+        if($(".searchTerm").length > 10){
+            alert("If you're travelling this much please give me some of your money")
+        }
+       
     }
 });
 $(document).on("click", ".searchTerm", function (event) {
     var city = event.target.textContent;
     userCity(city);
+    
+
  
 })
 

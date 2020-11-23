@@ -11,18 +11,21 @@ body {
     display: inline-block
 }
 .center{
-    background-color:lightblue;
+    
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.help{
+.dayBlock{
     display: inline-block;
     margin-left: 20px;
     border: lightslategrey solid;
+    background-color: lightblue;
 }
 
 .card-header{
     background-color: lightgray;
     
 }
+
+
