@@ -6,7 +6,7 @@ var searchList = JSON.parse(localStorage.getItem("userCitiesSearched")) || [];
 function userCity(citySearch) {
     $(".5days-container").empty()
     
-    var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + citySearch + "&units=imperial&appid=" + apikey;
+    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + citySearch + "&units=imperial&appid=" + apikey;
     
     if (citySearch !== "" || citySearch !== undefined) {
         citySearch.trim();
