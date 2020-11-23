@@ -23,7 +23,7 @@ function userCity(citySearch) {
             var long = burrito.coord.lon
             var weatherIcon = burrito.weather[0].icon
 
-            var uvIndex = "http://api.openweathermap.org/data/2.5/uvi?lat=" + latt + "&lon=" + long + "&appid=" + apikey;
+            var uvIndex = "https://api.openweathermap.org/data/2.5/uvi?lat=" + latt + "&lon=" + long + "&appid=" + apikey;
             $.ajax({
                 method: "GET",
                 url: uvIndex,
