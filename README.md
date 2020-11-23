@@ -18,6 +18,8 @@ This weather dashboard will take the questions and wonder out of your day about 
 
 ![preview](True_Weather_Dashboard.png);
 
+Contact: https://brandt-fricker.github.io/my-responsiveness-portfolio/contact.html
+
 Copyright (c) 2020 Brandt Fricker
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
