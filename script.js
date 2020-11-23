@@ -36,7 +36,7 @@ function userCity(citySearch) {
                 var yyyy = d.getFullYear();
                 var newHtml = $(`
                 <h3 class="cardBody" id="cityName">${cityTheUserSelected} (${mm}/${dd}/${yyyy})</h3>
-                <img src=" http://openweathermap.org/img/wn/${weatherIcon}@2x.png">
+                <img src=" https://openweathermap.org/img/wn/${weatherIcon}@2x.png">
                 <p class="cardBody">Temperature: ${theTemp.toFixed(1)} \u00B0 F</p>
                 <p class="cardBody">Humidity: ${theHumidity}%</p>
                 <p class="cardBody">Wind Speed: ${theWindSpeed} MPH</p>
@@ -67,7 +67,7 @@ function userCity(citySearch) {
 
                     var new5day = $(`<div class="dayBlock"> 
                     <h3 class="cardBody" id="cityName">${dayAtNoon}</h3>
-                    <img src=" http://openweathermap.org/img/wn/${newWeatherIcon}@2x.png">
+                    <img src=" https://openweathermap.org/img/wn/${newWeatherIcon}@2x.png">
                     <p class="cardBody">Temp: ${newTheTemp} \u00B0F</p>
                     <p class="cardBody">Humidity: ${newTheHumidity} %</p> </div>`)
 
