@@ -35,12 +35,12 @@ function userCity(citySearch) {
                 var mm = d.getMonth() + 1;
                 var yyyy = d.getFullYear();
                 var newHtml = $(`
-                <h3 class="cardBody" id="cityName">${cityTheUserSelected} (${mm}/${dd}/${yyyy})</h3>
+                <h3 class="cardBody currentWeather" id="cityName">${cityTheUserSelected} (${mm}/${dd}/${yyyy})</h3>
                 <img src="https://openweathermap.org/img/wn/${weatherIcon}@2x.png">
-                <p class="cardBody">Temperature: ${theTemp.toFixed(1)} \u00B0 F</p>
-                <p class="cardBody">Humidity: ${theHumidity}%</p>
-                <p class="cardBody">Wind Speed: ${theWindSpeed} MPH</p>
-                <p class="cardBody">UV Index: ${cityUv}</p>
+                <p class="cardBody currentWeather">Temperature: ${theTemp.toFixed(1)} \u00B0 F</p>
+                <p class="cardBody currentWeather">Humidity: ${theHumidity}%</p>
+                <p class="cardBody currentWeather">Wind Speed: ${theWindSpeed} MPH</p>
+                <p class="cardBody currentWeather">UV Index: ${cityUv}</p>
                 `);
                 
 
