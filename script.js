@@ -42,6 +42,7 @@ function userCity(citySearch) {
                 <p class="cardBody">Wind Speed: ${theWindSpeed} MPH</p>
                 <p class="cardBody">UV Index: ${cityUv}</p>
                 `);
+                
 
                 // inserts the current weather into the html 
                 $("#currentWeather").html(newHtml);

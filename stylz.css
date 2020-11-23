@@ -5,6 +5,13 @@ body {
     -o-background-size: cover;
     background-size: cover;
   }
+  #currentWeather{
+      background: url("https://images.pexels.com/photos/907485/pexels-photo-907485.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+  }
 
 .btn {
     margin-top: 8px;
@@ -19,13 +26,18 @@ body {
 .dayBlock{
     display: inline-block;
     margin-left: 20px;
+    margin-top: 20px;
     border: lightslategrey solid;
-    background-color: lightblue;
+    background: url("https://images.pexels.com/photos/907485/pexels-photo-907485.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+
 }
 
 .card-header{
     background-color: lightgray;
-    
 }
 
 
