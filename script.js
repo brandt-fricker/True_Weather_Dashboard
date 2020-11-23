@@ -6,7 +6,7 @@ var searchList = JSON.parse(localStorage.getItem("userCitiesSearched")) || [];
 function userCity(citySearch) {
     $(".5days-container").empty()
     
-    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + citySearch + "&units=imperial&appid=" + apikey;
+    var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + citySearch + "&units=imperial&appid=" + apikey;
 
     if (citySearch !== "" || citySearch !== undefined) {
         citySearch.trim();
@@ -23,7 +23,7 @@ function userCity(citySearch) {
             var long = burrito.coord.lon
             var weatherIcon = burrito.weather[0].icon
 
-            var uvIndex = "https://api.openweathermap.org/data/2.5/uvi?lat=" + latt + "&lon=" + long + "&appid=" + apikey;
+            var uvIndex = "http://api.openweathermap.org/data/2.5/uvi?lat=" + latt + "&lon=" + long + "&appid=" + apikey;
             $.ajax({
                 method: "GET",
                 url: uvIndex,
@@ -48,7 +48,7 @@ function userCity(citySearch) {
                 $("#currentWeather").html(newHtml);
             });
 
-            var queryURLForecast = "https://api.openweathermap.org/data/2.5/forecast?q=" + citySearch + "&units=imperial&appid=" + apikey;
+            var queryURLForecast = "http://api.openweathermap.org/data/2.5/forecast?q=" + citySearch + "&units=imperial&appid=" + apikey;
 
             $.ajax({
                 method: "GET",
